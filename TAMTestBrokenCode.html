@@ -1,0 +1,51 @@
+<script>
+
+    // 1.	What language is this? - 5pts
+            // Javascript
+            // https://tamtestjp.ufcontent.com/
+    
+    // 2.	Describe what this code is attempting to do - 5pts
+            // Mentioned in comments below the code execution implementation. We are first trying to find all the tiles present on the page and then find the tags details on the item. 
+            // Further the code is inserting a class name 'internal-article' to items which contains the tag 'Internal'. Print the tags name present on the items, print 'Internal' if a tag 'Internal' is added else if no tag is present print 'No Tags Present'
+    
+    // 3.	What is wrong with the implementation / Why doesn’t it work? - 20pts
+    
+            // Line 21 - Missing closing bracket ')'
+            // Line 23 - Extra 's' in tile keyword
+            // Line 28 & 29 - Spelling of word 'internal' having small 'i'
+            // Line 29 - contains() not a function, corrected with includes()
+    
+    
+    
+    function hideInternal() {                                      // function defined 'hideInternal'
+        const items = document.querySelectorAll('.uf-item-tile'); // returns all elements that matches the class 'uf-item-tile'
+        console.log(items);                                      // Print the elements in the class .uf-item-tile
+        
+        items.forEach(function  (tile) {                          // forEach used to calls a function for each element in the 'items' array list .
+        const tagList = tile.dataset.tags;                      // Check for the data attribute 'tags' on each item on the page
+            
+            if (typeof tagList !== "undefined") {
+                console.log(tagList);                           // Print the tags name if they have a tag and are not undefined
+                console.log(tagList.includes('Internal'));      // Print the tag name if it contains tag 'Internal'
+            if (tagList.includes('Internal')) {
+                    tile.classList.add('internal-article');     // If the item has a tag 'Internal' add the class 'Internal-Article'
+                }
+            }
+            else {
+                    console.log('no tags present');             // If none of the above condition matches, print 'no tag present'
+                }
+            
+        });
+    }
+    
+    </script>
+    
+    <script>
+        window.addEventListener('uberflip.load', function(){ hideInternal(); });    // load the function 'hideInternal' on page load
+        window.addEventListener('uberflip.itemsLoaded', function(){ });
+        window.addEventListener('uberflip.resize', function(){ });
+        window.addEventListener('uberflip.scroll', function(){ });
+        window.addEventListener('uberflip.ctaActivate', function(data){ });
+        window.addEventListener('uberflip.ctaFormSubmitSuccess', function(data){ });
+        window.addEventListener('uberflip.recoItemsLoaded', function(){ });
+    </script>

@@ -1,0 +1,18 @@
+<script>
+    window.onload = function () { 
+        changeURL();
+        };
+    
+    // https://invested.mdm.ca/md-articles/what-is-carms-residency-matching
+    // Multi-Language URL fix
+
+
+    function changeURL() {
+    var elem = document.querySelector("#top-page");
+    var el2 = document.querySelector("#uf-locale-selector-dropdown-content > ul > li > a");
+    if (elem.dataset.itemId == 665174468) {
+        el2.href = "https://capsule.mdm.ca/articles-fr/le-jumelage-des-residents-de-carms-c-est-quoi";
+        console.log("correct item page");
+        }
+    }
+    </script>

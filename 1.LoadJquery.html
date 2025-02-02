@@ -1,0 +1,27 @@
+<!-- Questions from https://www.w3resource.com/jquery-exercises/part1/index.php
+
+1. Test if jQuery is loaded.
+
+Method 1:
+$(document).ready(); 
+
+Method 2:-->
+
+<head>
+<script src="./jquery-3.6.0.js"></script>
+<meta charset="utf-8">
+<title>Test if jQuery is loaded</title>
+</head>
+<body>
+<p>Click me!</p>
+</body>
+
+<script>
+
+$('document').ready(function() {
+  $('p').click(function() {
+    $('p').html('This is Click Event')  
+  });
+});
+
+</script>

@@ -1,0 +1,75 @@
+<!DOCTYPE HTML> 
+<html> 
+  
+<head> 
+    <title> 
+        How to add target="_blank"
+        to a link using jQuery ?
+    </title>
+      
+    <script src=
+"https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js">
+    </script>
+</head> 
+  
+<body style = "text-align:center;"> 
+      
+    <h1 style = "color: green"> 
+        GeeksForGeeks 
+    </h1>
+      
+    <p id = "GFG_UP" style =
+        "font-size: 20px; font-weight: bold;">
+    </p>
+      
+    <div id="outer">
+        <a id = "a" href="https://www.geeksforgeeks.org">
+            THIS IS LINK
+        </a>
+    </div>
+    <br>
+      
+    <button onclick = "gfg_Run()"> 
+        Click Here
+    </button>
+      
+    <p id = "GFG_DOWN" style = "color:green;
+        font-size: 26px; font-weight: bold;">
+    </p>
+      
+    <script>
+        var el_up = document.getElementById("GFG_UP");
+        var el_down = document.getElementById("GFG_DOWN");
+          
+        el_up.innerHTML = 'Click on the button to add'
+                    + ' target="_blank" to the link.';
+      
+        // This function only returns all attribute
+        // properties of DOM element as a string and
+        // has nothing to do with the target property
+        function getAttr() {
+            var elmt = document.getElementById("a");
+      
+            // Adding the every attribute to the string.
+            for (var i = 0, attr = elmt.attributes,
+            n = attr.length, str = ""; i < n; i++) {
+                str = str + attr[i].nodeName + "='"
+                    + attr[i].nodeValue + "'<br>";
+            }
+              
+            // Returns the string of attributes
+            return str;
+        }
+          
+        el_down.innerHTML = getAttr();
+          
+        function gfg_Run() {
+              
+            // Set the target property to '_blank'.
+            $('#outer a').attr('target', '_blank');
+            el_down.innerHTML = getAttr();
+        } 
+    </script> 
+</body> 
+  
+</html>

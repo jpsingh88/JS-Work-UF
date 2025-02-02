@@ -1,0 +1,57 @@
+<!-- Questions from https://www.w3resource.com/jquery-exercises/part1/index.php
+
+2. Scroll to the top of the page with jQuery. -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="./jquery-3.6.0.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <p id="top">Top Of Page</p>
+    <p>Line</p>
+    <p>Line</p>
+    <p>Line</p>
+    <p>Line</p>
+    <p>Line</p>
+    <p>Line</p>
+    <p>Line</p>
+    <p>Line</p>
+    <p>Line</p>
+    <p>Line</p>
+    <p>Line</p>
+    <p>Line</p>
+    <p>Line</p>
+    <p>Line</p>
+    <p>Line</p>
+    <p>Line</p>
+    <p>Line</p>
+    <p>Line</p>
+    <p>Line</p>
+    <p>Line</p>
+    <p>Line</p>
+    <p>Bottom of Page</p>
+    <button>Click Me</button>
+</body>
+<script>
+$(document).ready(function() {
+    $('button').click(function(){
+        ('this').scrolltop();
+
+    })
+
+
+
+})
+var el = document.querySelector('#uf-stream-page')
+
+console.log(el)
+// VM1745:1 <body id=​"uf-stream-page" class=​"uf-stream-page uf-tiles-page  uf-blogs-stream uf-stream-type-blogpost    " data-hub-id=​"119908" data-hub-primarycolor=​"#d10056" data-hub-secondarycolor=​"#d8cece" data-hub-backgroundcolor=​"#a9a9a9" data-hub-embedded=​"false" data-hub-hidehero=​"false" data-hub-hidebanner=​"false" data-hub-hidefooter=​"false" data-hub-hideprimarynav=​"false" data-hub-hidesecondarynav=​"false" data-hub-linkbreakout=​"false" data-hub-flipbookbreakout=​"false" data-hub-inpreview=​"false" data-stream-id=​"7437112" data-stream-externalservice=​"blogpost" data-domain-www=​"https:​/​/​jpsingh.uberflip.com/​" data-domain-theme=​"vanilla" data-page-bookmark=​"#ufh-c-7437112-yoga-and-wellness-blogs" data-new-gr-c-s-check-loaded=​"14.1058.0" data-gr-ext-installed data-pin-hover=​"true">​…​</body>​
+undefinedel.dataset.streamId
+// '7437112'
+</script>
+</html>

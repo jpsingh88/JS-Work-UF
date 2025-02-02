@@ -1,0 +1,39 @@
+<script>
+    // https://resources.system-analysis.cadence.com/computational-fluid-dynamics-webinars
+
+    
+    // if you want to keep the "required" field for only 1 CTA
+    Hubs.Events.on('ctaActivate', function(){
+        requiredCheckBox();
+    });
+    function requiredCheckBox() {
+        // For One checkbox in the CTA (NO // from line 7 & 8 and add // in front of line 10,11,12,13,14)
+        let reqField = document.querySelector(".uf-preview-field.uf-cta-checkbox");
+        reqField.required = true;
+       
+        // For Second checkbox in the CTA (Add // in front of line 6,7,8,10 and add remove // from line 11,12,13,14)
+        // let reqField = document.querySelectorAll(".uf-preview-field.uf-cta-checkbox");
+        // for (var i=0; i<reqField.length; i++)   {
+        //         reqField[i].required = true;
+        //     }
+        }
+    </script>
+
+<!-- if you want to keep the "required" field for both CTAs -->
+ 
+<script>
+Hubs.Events.on('ctaActivate', function(){
+    requiredCheckBox();
+});
+function requiredCheckBox() {
+    // For One checkbox in the CTA (NO // from line 7 & 8 and add // in front of line 10,11,12,13,14)
+    // let reqField = document.querySelector(".uf-preview-field.uf-cta-checkbox");
+    // reqField.required = true;
+   
+    // For Second checkbox in the CTA (Add // in front of line 6,7,8,10 and add remove // from line 11,12,13,14)
+    let reqField = document.querySelectorAll(".uf-preview-field.uf-cta-checkbox");
+    for (var i=0; i<reqField.length; i++)   {
+            reqField[i].required = true;
+        }
+    }
+</script>

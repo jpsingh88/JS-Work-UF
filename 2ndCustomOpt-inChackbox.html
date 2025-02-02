@@ -1,0 +1,75 @@
+<script>
+// https://resources.cradlepoint.com/white-papers/state-of-wireless-wan-report-2020
+
+
+    // Hub Events
+    Hubs.Events.on('ctaActivate', function(ctaId){
+        conditionalOptIn(ctaId);
+    });
+    
+    // Opt-in Checkbox Controls
+    function conditionalOptIn(ctaId){
+        // Include translation CTA IDs below. Example: frenchList = [123456,654321];
+        frenchList = [330995];
+        germanList = [398594];
+        spanishList = [402698];
+        italianList = [402707];
+        frenchEMEAList = [402704];
+        spanishLATAMList = [];
+        englishList = [455751];
+        
+        if (frenchList.includes(ctaId)){
+            var optInMessage = "Je souhaite recevoir des communications Cradlepoint.<br><br>Cela comprend les communications publicitaires, de ventes et de partenaires. Vous pouvez <a style=\"color:#ffad00;\" href=\"https://info.cradlepoint.com/Subscription-Center.html\" target=\"_blank\">personnaliser vos permissions ou vous retirer</a> à tout moment. Veuillez consulter la <a style=\"color:#ffad00;\" href=\"https://cradlepoint.com/privacy-policy/\" target=\"_blank\">Politique de confidentialité</a> pour plus de détails.";
+            var optInMessage2 = "Afin de pouvoir vous donner accès à cette ressource, nous avons besoin de votre consentement pour la collecte d’informations personnelles.<br> En vertu du règlement général sur la protection des données de l’Union Européenne, nous avons besoin de votre accord pour notre utilisation des données personnelles (par exemple, votre nom et votre adresse électronique) que vous pouvez être amené à fournir à une ressource limitée et spécifique dans l'espace économique européen. Veuillez consulter <a style=\"color:#ffad00;\" href=\"https://cradlepoint.com/privacy-policy/\" target=\"_blank\">la politique de confidentialité RGPD </a> pour plus de détails.";
+        } else if (germanList.includes(ctaId)){
+            var optInMessage = "Ich möchte <a style=\"color:#ffad00;\" href=\"https://info.cradlepoint.com/Subscription-Center.html\" target=\"_blank\">Informationen</a> von Cradlepoint erhalten.<br><br>Dazu gehören Marketing-, Verkaufs- und Geschäftspartnerinformationen. Sie können Ihre Auswahl jederzeit anpassen oder sich abmelden. Bitte lesen Sie die <a style=\"color:#ffad00;\" href=\"https://cradlepoint.com/privacy-policy/\" target=\"_blank\">Datenschutzerklärung</a> für weitere Details.";
+            var optInMessage2 = "Bevor wir Ihnen den Zugriff auf diese Ressource freigeben können, benötigen wir Ihre Zustimmung zur Erhebung personenbezogener Daten. <br> Gemäß der EU-Datenschutzverordnung benötigen wir Ihre Zustimmung zur Verwendung personenbezogener Daten in der Europäischen Union (z. B. Ihren Namen und Ihre E-Mail-Adresse), die Sie für die Nutzung einer geschützten Ressource bereitstellen möchten. Bitte lesen Sie die <a style=\"color:#ffad00;\" href=\"https://cradlepoint.com/privacy-policy/\" target=\"_blank\">GDPR-Datenschutzrichtlinie </a> für weitere Einzelheiten.";
+        } else if (spanishList.includes(ctaId)){
+            var optInMessage = "Me gustaría recibir <a style=\"color:#ffad00;\" href=\"https://info.cradlepoint.com/Subscription-Center.html\" target=\"_blank\">comunicaciones</a> de Cradlepoint.<br><br>Incluidas comunicaciones de marketing, ventas y socios. Puede personalizar sus permisos o anular la suscripción en cualquier momento. Para obtener más información, revise la <a style=\"color:#ffad00;\" href=\"https://cradlepoint.com/privacy-policy/\" target=\"_blank\">Política de privacidad.</a>";
+            var optInMessage2 = "Antes de darte acceso a esta información, necesitamos tu consentimiento antes de recoger información personal. <br> De acuerdo con la EU General Data Protection Regulation, necesitamos tu consentimiento para el uso de datos personales EEA (por ejemplo tun ombre y email) que puedas proporcionar para acceder a los rescursos. Por favor revisa la <a style=\"color:#ffad00;\" href=\"https://info.cradlepoint.com/Subscription-Center.html\" target=\"_blank\"> GDPR Privacy Policy </a> para más información.";
+        } else if (italianList.includes(ctaId)){
+            var optInMessage = "Desidero ricevere <a style=\"color:#ffad00;\" href=\"https://info.cradlepoint.com/Subscription-Center.html\" target=\"_blank\">comunicazioni da Cradlepoint.</a><br><br>Il consenso include comunicazioni relative a marketing, vendite e partner. È possibile personalizzare le autorizzazioni o annullare la ricezione di comunicazioni in qualsiasi momento. Per ulteriori dettagli, consulta l'Informativa sulla <a style=\"color:#ffad00;\" href=\"https://cradlepoint.com/privacy-policy/\" target=\"_blank\">privacy.</a>";
+            var optInMessage2 = "Per poterle fornire accesso a questo contenuto, abbiamo bisogno del suo consenso al trattamento dei dati. <br> Nel rispetto dei principi dettati dal GDPR, le chiediamo di prestare il suo consenso al trattamento dei dati personali (quali ad esempio il suo nome, cognome ed email) comunicati per accedere alle risorse che richiedono registrazione. Le chiediamo di prendere visione della nostra <a style=\"color:#ffad00;\" href=\"https://info.cradlepoint.com/Subscription-Center.html\" target=\"_blank\"> Privacy Policy GDPR </a> per maggiori dettagli.";
+        } else if (frenchEMEAList.includes(ctaId)){
+            var optInMessage = "Je souhaite recevoir des <a style=\"color:#ffad00;\" href=\"https://info.cradlepoint.com/Subscription-Center.html\" target=\"_blank\">communications</a> de la part de Cradlepoint.<br><br>Cela inclut des communications marketing, commerciales et à propos des partenaires. Vous pouvez personnaliser vos préférences ou vous désinscrire à tout moment. Pour plus d’informations, veuillez consulter la <a style=\"color:#ffad00;\" href=\"https://cradlepoint.com/privacy-policy/\" target=\"_blank\">Politique de confidentialité.</a>";
+            var optInMessage2 = "Afin de pouvoir vous donner accès à cette ressource, nous avons besoin de votre consentement pour la collecte d’informations personnelles. <br> En vertu du règlement général sur la protection des données de l’Union Européenne, nous avons besoin de votre accord pour notre utilisation des données personnelles (par exemple, votre nom et votre adresse électronique) que vous pouvez être amené à fournir à une ressource limitée et spécifique dans l'espace économique européen. Veuillez consulter <a style=\"color:#ffad00;\" href=\"https://info.cradlepoint.com/Subscription-Center.html\" target=\"_blank\"> la politique de confidentialité RGPD </a> pour plus de détails.";
+        } else if (spanishLATAMList.includes(ctaId)){
+            var optInMessage = "Quisiera recibir <a style=\"color:#ffad00;\" href=\"https://info.cradlepoint.com/Subscription-Center.html\" target=\"_blank\">comunicaciones</a> de Cradlepoint.<br><br>Incluye la comunicación de marketing, ventas y socios. Puede personalizar sus permisos o darse de baja en cualquier momento. Revise la <a style=\"color:#ffad00;\" href=\"https://cradlepoint.com/privacy-policy/\" target=\"_blank\">Política de privacidad</a> para obtener más detalles.";
+        } else if (englishList.includes(ctaId)){
+            var optInMessage = "Before we can give you access to this resource, we will need your consent before collecting personal information. <br> Under the EU General Data Protection Regulation, we need your approval for our use of EEA Personal Data (e.g. your name and email address) you may provide for a gated resource. Please review the <a style=\"color:#ffad00;\" href=\"https://cradlepoint.com/privacy-policy/\" target=\"_blank\">GDPR Privacy Policy </a> for more details.";
+        }
+        else {
+            var optInMessage = "I would like to receive communications from Cradlepoint.<br><br>This includes communication from marketing, sales, and partner. You can <a style=\"color:#ffad00;\" href=\"https://info.cradlepoint.com/Subscription-Center.html\" target=\"_blank\">customize your permissions or opt-out</a> at any time. Please review the <a style=\"color:#ffad00;\" href=\"https://cradlepoint.com/privacy-policy/\" target=\"_blank\">Privacy Policy</a> for more details.";
+        }
+       
+       var optInCheckbox =  "<div class=\"cta-field-section one-line\">" +
+                            "<input type=\"checkbox\" class=\"opt-in-controller\">" +
+                            "<span class=\"cta-field-name custom-checkbox\" style=\"font-size:14px; color:inherit;\">"+ optInMessage  +"</span>" +
+                            "</div>";
+                            
+        var optInCheckbox2 =  "<div class=\"cta-field-section one-line\">" +
+                            "<input type=\"checkbox\" class=\"opt-in-controller\">" +
+                            "<span class=\"cta-field-name custom-checkbox\" style=\"font-size:14px; color:inherit;\">"+ optInMessage2  +"</span>" +
+                            "</div>";
+        
+        $('.cta-submit-form').parent().before(optInCheckbox);
+        if (ctaId == 330995 && 398594 && 402698 && 402707 && 402704 && 455751){
+            $('.cta-submit-form').parent().before(optInCheckbox2);
+        }
+        //control hidden field
+        $('.opt-in-controller').change(function(){
+        
+            var optInCheck = $('.opt-in-controller').is(':checked');
+            // console.log(optInCheck);
+            if (optInCheck === true){
+                $('[data-mapping=Explicit_Opt_in_Consent__c]').val('yes');          
+            } else if (optInCheck === false) {
+                $('[data-mapping=Explicit_Opt_in_Consent__c]').val('no');
+            }
+            
+        });
+        
+        //init
+        countryChange();
+    }
+    </script>

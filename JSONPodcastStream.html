@@ -1,0 +1,29 @@
+<script>
+    // https://www.insight.tech/podcasts
+    
+    $(document).ready(function() {
+        var oo2 = document.querySelector('#uf-stream-page');
+    var schema =
+    {
+        "@context": "https://schema.org/",
+       "@type": "PodcastSeries",
+       //"image": "https://www.relay.fm/inquisitive_artwork.png",
+       "url": "https://www.insight.tech/podcasts",
+       "name": "IoT Chat Podcast",
+       "description": "IoT Dev Chat covers what matters most to engineers and developers. Subscribe now to keep up with the latest in the industry.",
+       "webFeed": "https://www.insight.tech/podcasts.rss",
+       "author": {
+         "@type": "Person"
+         //"name": "Myke Hurley"
+       }
+    }
+    
+    var script = document.createElement('script');
+        script.type = "application/ld+json";
+        script.text = JSON.stringify(schema);
+        //Fire only if it's Podcast Stream page
+        if (oo2.dataset.streamId == '7416418'){ 
+        document.querySelector('body').appendChild(script);
+        }
+    });
+    </script>

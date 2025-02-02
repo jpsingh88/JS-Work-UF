@@ -1,0 +1,57 @@
+<script>
+// https://www.insight.tech/podcasts/the-meaning-of-it-ot-convergence-with-idc-and-intel
+// https://schema.org/PodcastEpisode
+
+    $(document).ready(function() {
+        var oo = document.querySelector('#uf-item-page')
+    
+        let itemUrl = window.location.href;
+        let el1 = document.querySelector("#uf-article > header > h1");
+        let itemTitle = el1.innerText;
+        
+        let el2 = document.querySelector("#uf-article > header > div > span > time");
+        let itemPublished = el2.dateTime;
+        
+        let itemDescription = document.getElementsByName('description')[0].getAttribute('content');
+        var itemContentUrl;
+        if (oo.dataset.itemId !== '675758726') {
+            var el3 = document.querySelector("p.text-bigger-font iframe");
+            // console.log(el3);
+            itemContentUrl = el3.src; 
+            // console.log(itemContentUrl);
+        } else {
+            var el4 = document.querySelector("#uf-item-blog-content > p:nth-child(3) > iframe");
+            itemContentUrl = el4.src;
+        }
+    
+        var schema =
+            {
+              "@context": "https://schema.org/",
+              "@type": "PodcastEpisode",
+              "url": itemUrl,
+              "name": itemTitle,
+              "datePublished": itemPublished,
+            //   //"timeRequired": "PT37M",
+              "description": itemDescription,
+              "associatedMedia": {
+                 "@type": "MediaObject",
+                 "contentUrl": itemContentUrl
+              },
+              "partOfSeries": {
+                 "@type": "PodcastSeries",
+                 "name": "IoT Chat Podcast",
+                 "url": "https://www.insight.tech/podcasts"
+              }
+               
+            }
+            
+    
+        var script = document.createElement('script');
+            script.type = "application/ld+json";
+            script.text = JSON.stringify(schema);
+            //Fire only if it's a Podcast Item and part of Podcast Stream page
+            if (oo.dataset.tags = 'podcast' && oo.dataset.streamId == '7416418'){ 
+            document.querySelector('body').appendChild(script);
+            }
+    });
+    </script>

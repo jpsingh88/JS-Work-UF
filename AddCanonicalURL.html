@@ -1,0 +1,14 @@
+<script>
+    // find if it's stream page i.e body-id = uf-stream-page
+    const name = document.querySelector('body');
+    if (name.classList.contains('listing-page') == true) {
+        updateCanonical();
+    }
+    
+    // insert html - canonical URL
+    function updateCanonical() {
+        // Insert canonical URL = page url 
+        const newURL = window.location.href;
+        document.getElementsByTagName('head')[0].innerHTML += `<link rel="canonical" href="${newURL}">`
+    }
+    </script>

@@ -1,0 +1,16 @@
+<script>
+    //https://perspectives.se.com/sustainability/esg-evolution-and-best-practice-a-practical-guide-to-corporate-reporting
+    
+    $(document).ready(function() {
+        let downloadButton = $('#item-content button.uf-download-ga');
+        $(downloadButton).click(function() {
+            var pageName = $('meta[name=title]').attr('content');
+            window.dataLayer = window.dataLayer || [];
+            dataLayer.push({
+                'event': 'ufDownload',
+                'pageTitle': pageName
+        });    
+        console.log(window.dataLayer);
+    });
+    });
+    </script>

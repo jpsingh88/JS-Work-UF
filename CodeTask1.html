@@ -1,0 +1,71 @@
+<script>
+    // Using Javascript, output the following information to the console on load:
+    // ●	Hub ID - 5pts
+    // ●	Stream ID - 5pts
+    // ●	How many items/tiles are on the page - 5pts
+    
+    var elementFinder = document.querySelector('body');
+    var el = document.querySelector('#uf-hub-page');
+    var el2 = document.querySelector('#uf-stream-page');
+    var el3 = document.querySelector('.uf-lazy-loader');
+    var el4 = document.querySelector('#uf-item-page');
+    
+    
+    // BONUS: Fire this function when items are lazy-loaded on page load
+    // After completing item 1, ensure that this code ONLY ﬁres on Stream-level pages. In other words, prevent the code written for Task 1 from ﬁring when looking at an item. - 5pts
+    
+    window.addEventListener('uberflip.load', () => {
+        if (elementFinder.classList.contains('uf-hub-page')) {
+            console.log('Hub ID:' + el.dataset.hubId);
+            console.log('Items loaded on the page:' + el3.dataset.loadLimit);
+            console.log('Total No of Items on the page:' + el3.dataset.totalItemCount);
+        } 
+        else if (elementFinder.classList.contains('uf-stream-page')) {
+            console.log('Stream ID:' + el2.dataset.streamId);
+            console.log('Items loaded on the page:' + el3.dataset.loadLimit);
+            console.log('Total No of Items on the page:' + el3.dataset.totalItemCount);
+        }
+        
+        // On Item Pages Only, perform the following tasks:
+        // ●	Output a list of tags applied to the currently viewed item to the console - 5pts
+    
+        else if (elementFinder.classList.contains('uf-item-page') && 'tags' in el4.dataset == true) {
+            console.log('Tags applied on this item: ' + el4.dataset.tags);
+        }
+        
+        // ●	If that item has no tags, output “Item has no tags” in console - 10pts
+    
+        else console.log('Item has no tags');
+    });
+    
+    
+    // BONUS: Fire this function when items are lazy-loaded after the initial set
+    // After completing item 1, ensure that this code ONLY ﬁres on Stream-level pages. In other words, prevent the code written for Task 1 from ﬁring when looking at an item. - 5pts
+    
+    window.addEventListener('uberflip.itemsLoaded', () => {
+        if (elementFinder.classList.contains('uf-hub-page')) {
+        console.log('Hub ID:' + el.dataset.hubId);
+        console.log('Items loaded on the page:' + el3.dataset.loadLimit);
+        console.log('Total No of Items on the page:' + el3.dataset.totalItemCount);
+    
+        } 
+        else if (elementFinder.classList.contains('uf-stream-page')) {
+            console.log('Stream ID:' + el2.dataset.streamId);
+            console.log('Items loaded on the page:' + el3.dataset.loadLimit);
+            console.log('Total No of Items on the page:' + el3.dataset.totalItemCount);
+        }    
+    });
+    
+    
+    
+    // On a Gated Item, output “CTA Activated” to the console when a Form CTA is clicked for data input - 10pts
+    window.addEventListener('uberflip.ctaActivate', () => {
+        console.log("CTA Activated")    
+        });
+        
+    // BONUS: Output “CTA Submitted” with the data when a Form CTA is submitted
+    window.addEventListener('uberflip.ctaFormSubmitSuccess', () => {
+        console.log("CTA Submitted")        
+        });
+    
+    </script>
